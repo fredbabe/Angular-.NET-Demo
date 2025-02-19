@@ -6,7 +6,11 @@
 
 # 👋 Introduktion
 
-Dette kodeprojekt er en lille MVP-løsning af en webapplikation med en frontend i Angular, en backend i .NET og Microsoft SQL Server som database. Projektets formål er at give brugeren mulighed for at oprette madplaner baseret på tilbudsaviser. Løsningen er en smule rigid og kræver nogle justeringer for at fungere helt optimalt, men dette er ikke inden for scope på nuværende tidspunkt. Alt er open source i dette repository. For at kunne køre det lokalt kræver det opsætning af lokal database og generering af data hvilket ikke ligger indenfor dette repository. Data brugt i demoen er scrapet fra Lidls egen online avis.
+Dette kodeprojekt er en lille MVP-løsning af en webapplikation med en frontend i Angular, en backend i .NET og Microsoft SQL Server som database. Projektets formål er at give brugeren mulighed for at oprette madplaner baseret på tilbudsaviser.
+
+I demoen er der kun data fra tilbudsavisen fra Lidl. Som nævnt er kodebasen et monorepo med en frontend i Angular og en backend i .NET med en MSSQL-database. Backenden består af et Web API i ASP.NET Core, hvor jeg bruger Entity Framework som ORM.
+
+For at opnå en typestærk forbindelse mellem frontenden og backenden bruger jeg NSwag til at generere typer i frontenden baseret på API'ets Swagger-dokumentation.
 
 Nedenfor vises en kort demo af programmet:
 
