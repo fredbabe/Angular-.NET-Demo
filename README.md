@@ -26,9 +26,9 @@ Her er en liste over de brugte teknologier:
 - Typescript
 - SCSS
 - HTML
-- Angular Query (Tanstack)
-- NSwag (Type generering fra swagger)
-- Lottie (Animationer)
+- Angular Query
+- NSwag
+- Lottie
 
 ### Backend
 
