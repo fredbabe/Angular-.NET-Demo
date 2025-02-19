@@ -1,5 +1,5 @@
 ﻿﻿<div align="center">
-    <h1 style="font-size: 100px;">Madplanlæggeren</h1>
+    <h1 style="font-size: 248px;">Madplanlæggeren</h1>
     <a href="https://www.buymeacoffee.com/VishwaGauravIn" target="_blank"><img alt="" src="https://skillicons.dev/icons?i=ts,angular,dotnet,html,scss" style="vertical-align:center" /></a>
 </div>
 <br/>
