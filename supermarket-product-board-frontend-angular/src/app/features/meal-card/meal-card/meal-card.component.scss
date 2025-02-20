@@ -1,0 +1,46 @@
+.meal-card {
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 280px;
+  min-height: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.meal-card-title {
+  font-weight: 600;
+  font-size: larger;
+  margin-bottom: 5px;
+}
+
+.meal-card-description {
+  font-size: 15px;
+  color: #71717a;
+  margin-top: 20px;
+}
+
+.meal-card-ingredients {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.meal-card-ingredient {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.meal-card-ingredient-title {
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}

@@ -1,0 +1,86 @@
+.multiple-tag-container {
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+}
+
+.mulitple-tag-input-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border: 1px solid #e4e4e7;
+  border-radius: 4px;
+}
+
+.mulitple-tag-input {
+  cursor: text;
+  font-size: small;
+  padding-left: 4px;
+  padding-right: 4px;
+  min-width: 0;
+  width: 100%;
+}
+
+.multiple-tag-add-button {
+  background-color: #283618;
+  border-left: 1px solid #e4e4e7;
+  padding: 8px 16px;
+  font-size: small;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  color: #e7ecef;
+
+  &:hover {
+    background-color: #606c38;
+  }
+}
+
+.multiple-tag-label {
+  padding-bottom: 8px;
+  font-size: 15px;
+}
+
+.multiple-tag-value-list {
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  margin-top: 6px;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.multiple-tag-value {
+  background-color: #dda15e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 16px; /* Makes the pill shape */
+  font-size: small;
+  font-weight: 500;
+  color: #3a3f46;
+}
+
+.multiple-tag-remove {
+  background: transparent;
+  border: none;
+  font-size: small;
+  font-weight: bold;
+  cursor: pointer;
+  color: #3a3f46;
+}
+
+:host {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,18 @@
+<div class="meal-card">
+  <p class="meal-card-title">{{ meal?.day }}</p>
+  <p>{{ meal?.meal }}</p>
+  <p class="meal-card-description">
+    {{ meal?.preparation }}
+  </p>
+  <div class="meal-card-ingredients">
+    <p class="meal-card-ingredient-title">Ingredienser</p>
+    <div
+      class="meal-card-ingredient"
+      *ngFor="let ingredient of meal?.ingredients"
+    >
+      <p>
+        - {{ ingredient.name }}. {{ ingredient.price }}. {{ ingredient.amount }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="custom-select-container" [ngClass]="{ 'disabled-btn': isDisabled }">
+  <p class="custom-select-label">{{ subLabel }}</p>
+
+  <div (click)="toggleDropdown()" class="custom-select-trigger">
+    <p class="custom-select-sub-label">{{ label }}</p>
+    <div class="custom-select-arrow-down-container">
+      <icon-arrow-down />
+    </div>
+  </div>
+  <small *ngIf="showError" class="error">{{ errorMessage }}</small>
+
+  <div class="values-list" *ngIf="viewValues()">
+    <div
+      class="value-item"
+      (click)="handleSelect(option)"
+      *ngFor="let option of options"
+    >
+      {{ option.name }}
+    </div>
+  </div>
+</div>

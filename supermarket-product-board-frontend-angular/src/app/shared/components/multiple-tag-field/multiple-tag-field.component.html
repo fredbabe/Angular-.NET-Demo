@@ -1,0 +1,18 @@
+<div class="multiple-tag-container" [ngClass]="{ 'disabled-btn': isDisabled }">
+  <p class="multiple-tag-label">{{ label }}</p>
+  <div class="mulitple-tag-input-container">
+    <input class="mulitple-tag-input" #tagInput />
+    <button
+      class="multiple-tag-add-button"
+      (click)="addElement(tagInput.value); tagInput.value = ''"
+    >
+      Add
+    </button>
+  </div>
+  <div class="multiple-tag-value-list" *ngIf="values && values.length > 0">
+    <div class="multiple-tag-value" *ngFor="let value of values; let i = index">
+      {{ value }}
+      <span (click)="removeElement(i)" class="multiple-tag-remove">✕</span>
+    </div>
+  </div>
+</div>

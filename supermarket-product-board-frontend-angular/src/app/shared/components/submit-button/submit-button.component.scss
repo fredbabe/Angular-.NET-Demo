@@ -1,0 +1,42 @@
+@use "@angular/material" as mat;
+
+.custom-button {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #283618;
+  height: 32px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fefae0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: background-color 0.1s ease, color 0.1s ease;
+  gap: 10px;
+
+  &:hover {
+    background-color: #606c38;
+  }
+}
+
+.button-spinner {
+  height: 10px;
+}
+
+:host {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  @include mat.progress-spinner-overrides(
+    (
+      active-indicator-color: #fefae0,
+    )
+  );
+}

@@ -1,0 +1,92 @@
+<main class="main">
+  <div class="content">
+    <form class="content" [formGroup]="mealPlanForm">
+      <p class="title">Madplanlæggerenc</p>
+      <div *ngIf="!isLoadingData()">
+        <select-field
+          [isDisabled]="isSubmitting()"
+          formControlName="mealType"
+          [label]="'Vælg en diæt preference'"
+          [subLabel]="'Diæt Preference'"
+          [options]="dietaryPreferences"
+          (valueChange)="onPreferenceChange($event)"
+          [showError]="
+            mealPlanForm.get('mealType')?.invalid &&
+            mealPlanForm.get('mealType')?.touched
+          "
+          [errorMessage]="'Diæt Preference er påkrævet.'"
+        />
+
+        <select-field
+          [isDisabled]="isSubmitting()"
+          formControlName="amountOfPeople"
+          [label]="'Vælg antal personer'"
+          [subLabel]="'Antal Personer'"
+          [options]="amountOfPeopleOptions"
+          (valueChange)="onAmountOfPeopleChange($event)"
+          [showError]="
+            mealPlanForm.get('amountOfPeople')?.invalid &&
+            mealPlanForm.get('amountOfPeople')?.touched
+          "
+          [errorMessage]="'Antal Personer er påkrævet.'"
+        />
+
+        <select-field
+          [isDisabled]="isSubmitting()"
+          formControlName="superMarketId"
+          [label]="'Vælg supermarket'"
+          [subLabel]="'Supermarket'"
+          [options]="supermarkets()"
+          (valueChange)="onSupermarketChange($event)"
+          [showError]="
+            mealPlanForm.get('superMarketId')?.invalid &&
+            mealPlanForm.get('superMarketId')?.touched
+          "
+          [errorMessage]="'Supermarked er påkrævet.'"
+        />
+
+        <select-field
+          [isDisabled]="isSubmitting()"
+          formControlName="amountOfDays"
+          [label]="'Vælg antal dage'"
+          [subLabel]="'Antal Dage'"
+          [options]="amountOfDaysOptions"
+          (valueChange)="onAmountOfDaysChange($event)"
+          [showError]="
+            mealPlanForm.get('amountOfDays')?.invalid &&
+            mealPlanForm.get('amountOfDays')?.touched
+          "
+          [errorMessage]="'Antal Dage er påkrævet.'"
+        />
+
+        <multiple-tag-field
+          [isDisabled]="isSubmitting()"
+          formControlName="preferedIngredients"
+          [label]="'Tilføj evt ønskede ingredienser'"
+        />
+      </div>
+
+      <div class="spinner-container">
+        <mat-spinner mode="indeterminate" *ngIf="isLoadingData()"></mat-spinner>
+      </div>
+
+      <submit-button [isDisabled]="isSubmitting()" (click)="createMealPlan()" />
+
+      <div *ngIf="isSubmitting()" class="cook-message">
+        Det kan godt tage lidt tid, kokken er fuld i sving ...
+      </div>
+      <div class="app-meal-card-container">
+        <meal-card *ngFor="let meal of mealPlan()?.days" [meal]="meal" />
+      </div>
+
+      <div
+        *ngIf="isSubmitting()"
+        lottie
+        class="lottie-component"
+        [options]="options"
+        (animationCreated)="animationCreated($event)"
+      ></div>
+    </form>
+  </div>
+</main>
+<router-outlet />

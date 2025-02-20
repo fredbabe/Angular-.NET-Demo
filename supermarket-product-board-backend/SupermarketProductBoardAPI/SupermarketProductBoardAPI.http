@@ -1,0 +1,6 @@
+@SupermarketProductBoardAPI_HostAddress = http://localhost:5158
+
+GET {{SupermarketProductBoardAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

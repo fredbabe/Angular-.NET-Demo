@@ -1,0 +1,9 @@
+<button [ngClass]="{ 'disabled-btn': isDisabled }" class="custom-button">
+  Opret mad plan
+  <mat-spinner
+    *ngIf="isDisabled"
+    mode="indeterminate"
+    [diameter]="20"
+    class="button-spinner"
+  ></mat-spinner>
+</button>

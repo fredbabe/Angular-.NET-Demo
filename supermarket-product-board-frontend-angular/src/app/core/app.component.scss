@@ -1,0 +1,86 @@
+@use "@angular/material" as mat;
+
+.main {
+  margin-top: 80px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 70px;
+  margin-bottom: 100px;
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 50px;
+  }
+}
+
+/* Small screens (tablets & phones) */
+@media (max-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 30px;
+  }
+}
+
+.lottie-component {
+  height: 300px;
+}
+
+.spinner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.app-meal-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 40px;
+}
+
+.cook-message {
+  font-weight: 600;
+}
+
+:host {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include mat.progress-spinner-overrides(
+    (
+      active-indicator-color: #606c38,
+    )
+  );
+}
