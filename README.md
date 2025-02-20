@@ -8,7 +8,7 @@
 
 Dette kodeprojekt er en lille MVP-løsning af en webapplikation med en frontend i Angular, en backend i .NET og Microsoft SQL Server som database. Projektets formål er at give brugeren mulighed for at oprette madplaner baseret på tilbudsaviser.
 
-I demoen er der kun data fra tilbudsavisen fra Lidl. Som nævnt er kodebasen et monorepo med en frontend i Angular og en backend i .NET med en MSSQL-database. Backenden består af et Web API i ASP.NET Core, hvor jeg bruger Entity Framework som ORM. For at kalde mine endpoints i backenden bruger jeg Angular Query, som er en del af TanStack, og animationen er en del af Lottie-biblioteket.
+I demoen er der kun data fra tilbudsavisen fra Lidl. Som nævnt er kodebasen et monorepo med en frontend i Angular og en backend i .NET med en MSSQL-database. Backenden består af et Web API i ASP.NET Core, hvor jeg bruger Entity Framework som ORM. For at kalde mine endpoints i backenden bruger jeg Angular Query, som er en del af TanStack, og animationen er en del af Lottie-biblioteket. OpenAI API bruges til at generere selve madplanerne.
 
 For at opnå en typestærk forbindelse mellem frontenden og backenden bruger jeg NSwag til at generere typer i frontenden baseret på API'ets Swagger-dokumentation.
 
@@ -37,5 +37,6 @@ Her er en liste over de brugte teknologier:
 - Entity Framework
 - Swagger
 - Microsoft SQL Server
+- OpenAI API
 
 # ⛵️ Flow diagram
