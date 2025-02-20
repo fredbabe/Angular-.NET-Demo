@@ -38,5 +38,3 @@ Her er en liste over de brugte teknologier:
 - Swagger
 - Microsoft SQL Server
 - OpenAI API
-
-# ⛵️ Flow diagram
