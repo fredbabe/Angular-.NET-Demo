@@ -1,0 +1,35 @@
+name: Deploy Azure App Service Ressource
+
+# Trigger manually using the workflow_dispatch event
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write  # Grants write permissions to the id-token
+  contents: read   # Ensures the workflow can read repository contents, which is usually required
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy Bicep File For App Service
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.38.0
+          inlineScript: |
+            az deployment group create \
+              --resource-group spb-prod-rg \
+              --template-file supermarket-product-board-infrastructure/app-service.bicep \
+              --parameters appServiceName=spb-prod-app \
+                          appServicePlanName=spb-prod-app
