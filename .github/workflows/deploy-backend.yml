@@ -1,0 +1,62 @@
+name: Deploy .NET API to Azure App Service
+
+# Trigger
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write  # Required for OIDC authentication
+  contents: read   # To allow reading the repository content
+
+env:
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Change directory to the backend
+      - name: Change to backend directory
+        run: cd supermarket-product-board-backend
+        
+      # Step 3: Setup .NET SDK
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'
+        
+      # Step 4: Restore NuGet packages
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ./supermarket-product-board-backend
+
+      # Step 5: Build the project
+      - name: Build the project
+        run: dotnet build --configuration Release --no-restore
+        working-directory: ./supermarket-product-board-backend
+
+      # Step 6: Publish the project (build the artifacts for deployment)
+      - name: Publish the project
+        run: dotnet publish -c Release --property:PublishDir='./publish'  
+        working-directory: ./supermarket-product-board-backend
+
+      # Step 7: Login to Azure (using OIDC)
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # Step 8: Deploy to Azure App Service
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.AZURE_APP_SERVICE_NAME }}
+          package: './supermarket-product-board-backend/SupermarketProductBoardAPI/publish' 
+          
