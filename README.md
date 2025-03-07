@@ -41,4 +41,4 @@ Her er en liste over de brugte teknologier:
 
 ### Deployment
 - Github Actions
-- Biceps for infrastructure as code towards Azure.
+- Bicep for infrastructure as code towards Azure.
