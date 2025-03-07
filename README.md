@@ -38,3 +38,7 @@ Her er en liste over de brugte teknologier:
 - Swagger
 - Microsoft SQL Server
 - OpenAI API
+
+### Deployment
+- Github Actions
+- Biceps for infrastructure as code towards Azure.
